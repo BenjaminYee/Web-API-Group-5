@@ -1,3 +1,5 @@
+// Change to Menu
+
 import React, {Component} from 'react';
 import {fetchMovies } from "../actions/movieActions";
 import {setMovie } from "../actions/movieActions";
