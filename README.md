@@ -1,5 +1,18 @@
+# What needs to be done
+    - Adding things to a cart.
+    - Checking out page
+    - Donation page
+
+# What is done
+- Able to display food items in the 'food menu' part of website
+    - For now I used my a different database and added a food object backend to test front end.
+    - Once food is implemented on backend i can implement it with the front end.
+- Should be able to sign in and sign out and register
+    -  Not being signed in will still disable all other links 
+
+
+# -----------------------------------------------------------
 # Getting Started with Create React App
-# Cheeseburger
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
