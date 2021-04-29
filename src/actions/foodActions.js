@@ -2,7 +2,7 @@ import actionTypes from '../constants/actionTypes';
 import runtimeEnv from '@mars/heroku-js-runtime-env'
 
 
-export const Cart = []
+export const CartArray = []
 function foodsFetched(foods) {
     return {
         type: actionTypes.FETCH_FOODS,
