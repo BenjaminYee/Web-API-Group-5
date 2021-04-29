@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { fetchFoods } from "../actions/foodActions";
 import { setFood } from "../actions/foodActions";
-import { addToCart } from "../actions/foodActions";
 import {connect} from 'react-redux';
-import {Image, Nav} from 'react-bootstrap';
 import { Card, Button, Carousel } from 'react-bootstrap';
-import {LinkContainer} from 'react-router-bootstrap';
 
 
 
@@ -27,7 +24,7 @@ class FoodList extends Component{
 
     handleClick = (food) => {
         const {dispatch} = this.props
-        dispatch(addToCart(food))
+        dispatch(setFood(food))
     }
 
 
@@ -48,7 +45,7 @@ class FoodList extends Component{
                             <p>Price: {food.cost}</p>
                             <p>Calories: {food.calories}</p>
                             </Card.Text>
-                            <Button onClick={this.handleClick(food)}>Add to Cart</Button>
+                            <Button onClick={()=>this.handleClick(food)}> Add to Cart</Button>
                         </Card.Body>
                         </Card>
                         </div>
