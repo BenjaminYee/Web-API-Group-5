@@ -15,6 +15,19 @@ function charityFetched(Charity) {
     }
 }
 
+function charitySet(Charity) {
+    return {
+        type: actionTypes.SET_CHARITY,
+        selectedCharity: Charity
+    }
+}
+
+export function setCharity(Charity) {
+    return dispatch => {                // dispatch will send it to the store with (foodSet(food)) as parameter
+        dispatch(charitySet(Charity));
+    }
+}
+
 export function fetchCharity(charityID) {                         // fetch single charity with either charityId
     const env = runtimeEnv();
     return dispatch => {
