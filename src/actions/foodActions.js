@@ -2,37 +2,37 @@ import actionTypes from '../constants/actionTypes';
 import runtimeEnv from '@mars/heroku-js-runtime-env'
 
 
-function moviesFetched(movies) {
+function foodsFetched(foods) {
     return {
-        type: actionTypes.FETCH_MOVIES,
-        movies: movies
+        type: actionTypes.FETCH_FOODS,
+        foods: foods
     }
 }
 
-function movieFetched(movie) {
+function foodFetched(food) {
     return {
-        type: actionTypes.FETCH_MOVIE,
-        selectedMovie: movie
+        type: actionTypes.FETCH_FOOD,
+        selectedFood: food
     }
 }
 
-function movieSet(movie) {
+function foodSet(food) {
     return {
-        type: actionTypes.SET_MOVIE,
-        selectedMovie: movie
+        type: actionTypes.SET_FOOD,
+        selectedFood: food
     }
 }
 
-export function setMovie(movie) {
-    return dispatch => {
-        dispatch(movieSet(movie));
+export function setFood(food) {
+    return dispatch => {                // dispatch will send it to the store with (foodSet(food)) as parameter
+        dispatch(foodSet(food));
     }
 }
 
-export function fetchMovie(movieId) {
+export function fetchFood(foodId) {                         // fetch single food with either foodId or food name CHANGE LATER
     const env = runtimeEnv();
     return dispatch => {
-        return fetch(`${env.REACT_APP_API_URL}/moviecollection/${movieId}`, {
+        return fetch(`${env.REACT_APP_API_URL}/menu/${foodId}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -46,15 +46,15 @@ export function fetchMovie(movieId) {
             }
             return response.json()
         }).then((res) => {
-            dispatch(movieFetched(res));
+            dispatch(foodFetched(res));
         }).catch((e) => console.log(e));
     }
 }
 
-export function fetchMovies() {
+export function fetchFoods() {                          // fetch multiple foods
     const env = runtimeEnv();
     return dispatch => {
-        return fetch(`${env.REACT_APP_API_URL}/moviecollection`, {
+        return fetch(`${env.REACT_APP_API_URL}/menu`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -68,7 +68,7 @@ export function fetchMovies() {
             }
             return response.json()
         }).then((res) => {
-            dispatch(moviesFetched(res));
+            dispatch(foodsFetched(res));
         }).catch((e) => console.log(e));
     }
 }

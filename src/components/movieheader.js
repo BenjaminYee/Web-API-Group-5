@@ -12,27 +12,27 @@ class MovieHeader extends Component {
     render() {
         return (
             <div>
-                <Navbar expand="lg" bg="dark" variant="dark">
+                <Navbar bg="dark" variant="dark">
                     <Navbar.Brand>
-                        Artsiom's Homework 5
+                        Food Apps
                     </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
                     <Nav>
-                            <LinkContainer to="/movielist">
-                                <Nav.Link disabled={!this.props.loggedIn}>Movie List</Nav.Link>
-                            </LinkContainer>
-                            <LinkContainer to={'/movie/' + (this.props.selectedMovie ? this.props.selectedMovie._id : '')}>
-                                <Nav.Link disabled={!this.props.loggedIn}>Movie Detail</Nav.Link>
-                            </LinkContainer>
-                            <LinkContainer to={'/movie/' + (this.props.selectedMovie ? this.props.selectedMovie._id : '')}>
-                                <Nav.Link disabled={!this.props.loggedIn}>Your Order</Nav.Link>
-                            </LinkContainer>
-                            <LinkContainer to="/signin">
-                                <Nav.Link>{this.props.loggedIn ? <button onClick={this.logout.bind(this)}>Logout</button> : 'Login'}</Nav.Link>
-                            </LinkContainer>
+                        <LinkContainer to="/foodlist">
+                            <Nav.Link disabled={!this.props.loggedIn}>Food Menu</Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer to="/movielist">
+                            <Nav.Link disabled={!this.props.loggedIn}>Movie List</Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer to={'/movie/' + (this.props.selectedMovie ? this.props.selectedMovie._id : '')}>
+                            <Nav.Link disabled={!this.props.loggedIn}>Movie Details</Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer to={'/movie/' + (this.props.selectedMovie ? this.props.selectedMovie._id : '')}>
+                            <Nav.Link disabled={!this.props.loggedIn}>Cart</Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer to="/signin">
+                            <Nav.Link>{this.props.loggedIn ? <button onClick={this.logout.bind(this)}>Log Out {localStorage.getItem('username')}</button> : 'Login'}</Nav.Link>
+                        </LinkContainer>
                     </Nav>
-                    </Navbar.Collapse>
                 </Navbar>
             </div>
         )
