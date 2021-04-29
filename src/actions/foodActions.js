@@ -32,7 +32,7 @@ export function setFood(food) {
 export function fetchFood(foodId) {                         // fetch single food with either foodId or food name CHANGE LATER
     const env = runtimeEnv();
     return dispatch => {
-        return fetch(`${env.REACT_APP_API_URL}/menu/${foodId}`, {
+        return fetch(`${env.REACT_APP_API_URL}/McCarthys/${foodId}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -54,7 +54,7 @@ export function fetchFood(foodId) {                         // fetch single food
 export function fetchFoods() {                          // fetch multiple foods
     const env = runtimeEnv();
     return dispatch => {
-        return fetch(`${env.REACT_APP_API_URL}/menu`, {
+        return fetch(`${env.REACT_APP_API_URL}/McCarthys`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
