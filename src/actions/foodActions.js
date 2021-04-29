@@ -1,6 +1,8 @@
 import actionTypes from '../constants/actionTypes';
 import runtimeEnv from '@mars/heroku-js-runtime-env'
 
+
+const Cart = []
 function foodsFetched(foods) {
     return {
         type: actionTypes.FETCH_FOODS,
@@ -16,17 +18,13 @@ function foodFetched(food) {
 }
 
 function foodSet(food) {
+    Cart.push(food)
     return {
         type: actionTypes.SET_FOOD,
         selectedFood: food
     }
 }
-export function addToCart(food) {
-    return {
-        type: actionTypes.ADD_CART,
-        selectedFood: food
-    }
-}
+
 export function setFood(food) {
     return dispatch => {                // dispatch will send it to the store with (foodSet(food)) as parameter
         dispatch(foodSet(food));
