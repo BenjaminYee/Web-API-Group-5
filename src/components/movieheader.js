@@ -20,13 +20,7 @@ class MovieHeader extends Component {
                         <LinkContainer to="/foodlist">
                             <Nav.Link disabled={!this.props.loggedIn}>Food Menu</Nav.Link>
                         </LinkContainer>
-                        <LinkContainer to="/movielist">
-                            <Nav.Link disabled={!this.props.loggedIn}>Movie List</Nav.Link>
-                        </LinkContainer>
-                        <LinkContainer to={'/movie/' + (this.props.selectedMovie ? this.props.selectedMovie._id : '')}>
-                            <Nav.Link disabled={!this.props.loggedIn}>Movie Details</Nav.Link>
-                        </LinkContainer>
-                        <LinkContainer to={'/movie/' + (this.props.selectedMovie ? this.props.selectedMovie._id : '')}>
+                        <LinkContainer to={'/cart/' + (this.props.selectedMovie ? this.props.selectedMovie._id : '')}>
                             <Nav.Link disabled={!this.props.loggedIn}>Cart</Nav.Link>
                         </LinkContainer>
                         <LinkContainer to="/signin">
