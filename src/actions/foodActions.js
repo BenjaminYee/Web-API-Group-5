@@ -18,7 +18,8 @@ function foodFetched(food) {
 }
 
 function foodSet(food) {
-    Cart.push(food)
+    CartArray.push(food)
+    console.log(CartArray)
     return {
         type: actionTypes.SET_FOOD,
         selectedFood: food
