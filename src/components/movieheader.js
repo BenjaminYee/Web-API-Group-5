@@ -14,7 +14,7 @@ class MovieHeader extends Component {
             <div>
                 <Navbar bg="dark" variant="dark">
                 <a href="/">
-                    <Navbar.Brand> Food App</Navbar.Brand>
+                    <Navbar.Brand>McCarthy's</Navbar.Brand>
                        </a>
                     <Nav>
                         <LinkContainer to="/foodlist">
