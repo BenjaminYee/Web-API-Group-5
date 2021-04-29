@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Navbar, Nav} from 'react-bootstrap';
+import {Navbar, Nav, NavbarBrand} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 import {connect} from 'react-redux';
 import {logoutUser} from "../actions/authActions";
@@ -13,9 +13,9 @@ class MovieHeader extends Component {
         return (
             <div>
                 <Navbar bg="dark" variant="dark">
-                    <Navbar.Brand>
-                        Food Apps
-                    </Navbar.Brand>
+                <a href="/">
+                    <Navbar.Brand> Food App</Navbar.Brand>
+                       </a>
                     <Nav>
                         <LinkContainer to="/foodlist">
                             <Nav.Link disabled={!this.props.loggedIn}>Food Menu</Nav.Link>
