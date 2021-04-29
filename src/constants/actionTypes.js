@@ -9,13 +9,12 @@ const Constants = {
     FETCH_FOOD: 'FETCH_FOOD',
     FETCH_FOODS: 'FETCH_FOODS',
     SET_FOODS: 'SET_FOOD',
-<<<<<<< HEAD
 
     FETCH_CHARITY: 'FETCH_CHARITY',
-    FETCH_CHARITIES: 'FETCH_CHARITIES'
-=======
+    FETCH_CHARITIES: 'FETCH_CHARITIES',
+    SET_CHARITY: 'SET_CHARITY',
+
     ADD_CART: 'ADD_CART'
->>>>>>> cf5c5b4be67f303efb3f486250d19fe4c35cea1f
 }
 
 export default Constants;
