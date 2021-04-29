@@ -5,8 +5,9 @@ import movieReducer from "../reducers/movieReducer";
 import foodReducer from "../reducers/foodReducer";
 const middlewares = [thunk];
 
+
 if (process.env.NODE_ENV === 'development') {    // if we are in develop mode
-    const { logger } = require('redux-logger');  
+    const { logger } = require('redux-logger');
 
     middlewares.push(logger);
 }
