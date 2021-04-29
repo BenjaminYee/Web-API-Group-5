@@ -10,17 +10,17 @@ const authReducer = (state = initialState, action) => {
     var updated = Object.assign({}, state);
 
     switch (action.type) {
-        case constants.USER_LOGGEDIN:               // if the userLoggedIn
-            updated['loggedIn'] = true;             // set loggedIn to true
-            updated['username'] = action.username;  // set the username to the action.username
+        case constants.USER_LOGGEDIN:
+            updated['loggedIn'] = true;
+            updated['username'] = action.username;
             return updated;
 
-        case constants.USER_LOGOUT:         // if the userLogged out
-            updated['loggedIn'] = false;    // set loggedin to false
-            updated['username'] = '';       // set username to blank
+        case constants.USER_LOGOUT:
+            updated['loggedIn'] = false;
+            updated['username'] = '';
             return updated;
 
-        default:                // nothing happened
+        default:
             return state;
     }
 }
