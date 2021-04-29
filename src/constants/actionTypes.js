@@ -8,7 +8,10 @@ const Constants = {
 
     FETCH_FOOD: 'FETCH_FOOD',
     FETCH_FOODS: 'FETCH_FOODS',
-    SET_FOODS: 'SET_FOOD'
+    SET_FOODS: 'SET_FOOD',
+
+    FETCH_CHARITY: 'FETCH_CHARITY',
+    FETCH_CHARITIES: 'FETCH_CHARITIES'
 }
 
 export default Constants;
