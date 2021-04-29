@@ -21,7 +21,12 @@ function foodSet(food) {
         selectedFood: food
     }
 }
-
+export function addToCart(food) {
+    return {
+        type: actionTypes.ADD_CART,
+        selectedFood: food
+    }
+}
 export function setFood(food) {
     return dispatch => {                // dispatch will send it to the store with (foodSet(food)) as parameter
         dispatch(foodSet(food));
