@@ -9,6 +9,7 @@ import {HashRouter, Route} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './stores/store';
 import FoodList from './components/foodList'
+import CheckOut from './components/checkOut'
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
             <Route exact path="/cart" render={()=><CartList />}/>
             <Route exact path="/movie/:movieId" render={()=><p />}/>
             <Route path="/signin" render={()=><Authentication />}/>
+            <Route path="/checkOut" render={()=><CheckOut />}/>
+
           </div>
         </HashRouter>
       </Provider>
