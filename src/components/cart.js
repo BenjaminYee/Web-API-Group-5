@@ -6,6 +6,8 @@ import { Card } from 'react-bootstrap';
 import { render } from '@testing-library/react';
 import {ceil} from "mathjs";
 import {cartTotal} from '../actions/foodActions'
+import {Nav} from 'react-bootstrap';
+import {LinkContainer} from 'react-router-bootstrap';
 
 class Cart extends Component{
 
@@ -18,6 +20,7 @@ class Cart extends Component{
         console.log(total);
         // Get the checkbox
         var checkBox = document.getElementById("myCheck");
+        console.log(checkBox.length)
         // Get the output text
         var text = document.getElementById("text");
         var valuetotal = document.getElementById("valuetotal");
@@ -58,7 +61,7 @@ class Cart extends Component{
             )
             total = total + CartArray[i].cost
         }
-        cartTotal = total
+        cartTotal[0] = total
         for (var i = 0; i<this.props.charities.length; i++){
             charities.push(
                 <div className='col-sm-3 p-3'>
@@ -81,6 +84,9 @@ class Cart extends Component{
             <section>{items}</section>
             <section>{charities}</section>
             <div><h2 id="valuetotal" ><p style={{display:"block"}}>Total price: {total}</p></h2></div>
+            <LinkContainer to={'/checkOut'}>
+                <Nav.Link><button>Check Out</button></Nav.Link>
+            </LinkContainer>
         </div>)
     }
 }
