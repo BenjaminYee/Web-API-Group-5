@@ -30,7 +30,7 @@ class Cart extends Component{
             total = ceil(total);
             text.style.display = "block";
             valuetotal.innerHTML = "Total price: "+total;
-
+            cartTotal[0] = total
             console.log(total);
         } else {
             text.style.display = "none";
