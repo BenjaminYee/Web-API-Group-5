@@ -3,6 +3,9 @@ import runtimeEnv from '@mars/heroku-js-runtime-env'
 
 
 export const CartArray = []
+
+export const cartTotal = [0]
+
 function foodsFetched(foods) {
     return {
         type: actionTypes.FETCH_FOODS,

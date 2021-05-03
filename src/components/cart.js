@@ -4,6 +4,9 @@ import {CharityArray} from "../actions/cartActions";
 import {connect} from 'react-redux';
 import { Card } from 'react-bootstrap';
 import { render } from '@testing-library/react';
+import {LinkContainer} from 'react-router-bootstrap';
+import {Nav} from 'react-bootstrap';
+import {cartTotal} from '../actions/foodActions'
 
 
 
@@ -29,8 +32,10 @@ class Cart extends Component{
             </div>
 
             )
+            // cartTotal[0] = cartTotal[0] + CartArray[i].cost
             total = total + CartArray[i].cost
         }
+        cartTotal[0] = total
         for (var i = 0; i<CharityArray.length; i++){
             charities.push(
                 <div className='col-sm-3 p-3'>
@@ -48,10 +53,16 @@ class Cart extends Component{
 
         }
 
-        return(<div>
+        return(
+        <div>
             <div>{items}</div>
             <div>{charities}</div>
-            <div><h2>Total price: {total}</h2></div>
+                <div>
+                    <h2>Total price: {total}</h2>
+                    <LinkContainer to="/checkOut">
+                                <Nav.Link >Check Out</Nav.Link>
+                        </LinkContainer>    
+                </div>
         </div>)
     }
 }
