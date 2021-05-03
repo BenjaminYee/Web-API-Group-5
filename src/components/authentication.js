@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Login from './login';
 import Register from './register';
 import { logoutUser } from '../actions/authActions';
+import {CartArray} from '../actions/foodActions'
 
 class Authentication extends Component {
 
@@ -31,6 +32,7 @@ class Authentication extends Component {
     }
 
     logout(){
+        CartArray = []
         this.props.dispatch(logoutUser());
     }
 
