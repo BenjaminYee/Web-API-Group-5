@@ -1,6 +1,8 @@
 import actionTypes from '../constants/actionTypes';
 import runtimeEnv from '@mars/heroku-js-runtime-env'
+import {BiChair} from "react-icons/all";
 
+export const CharityArray = []
 function charitiesFetched(charities) {
     return {
         type: actionTypes.FETCH_CHARITIES,
@@ -16,6 +18,9 @@ function charityFetched(Charity) {
 }
 
 function charitySet(Charity) {
+    CharityArray.push(Charity)
+    console.log("hit charity set")
+    console.log(CharityArray)
     return {
         type: actionTypes.SET_CHARITY,
         selectedCharity: Charity
