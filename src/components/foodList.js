@@ -27,7 +27,6 @@ class FoodList extends Component{
         dispatch(setFood(food))
     }
 
-
     render(){
         const FoodListCards = ({foodList}) => {
             if (!foodList){

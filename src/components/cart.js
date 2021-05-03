@@ -1,13 +1,40 @@
 import React, { Component } from 'react';
 import {CartArray} from "../actions/foodActions";
-import {CharityArray} from "../actions/cartActions";
+import {CharityArray, fetchCharities} from "../actions/cartActions";
 import {connect} from 'react-redux';
 import { Card } from 'react-bootstrap';
 import { render } from '@testing-library/react';
-
+import {ceil} from "mathjs";
 
 
 class Cart extends Component{
+
+    componentDidMount(){
+        const {dispatch} = this.props
+        dispatch(fetchCharities())
+    }
+
+    roundTotal(total) {
+        console.log(total);
+        // Get the checkbox
+        var checkBox = document.getElementById("myCheck");
+        // Get the output text
+        var text = document.getElementById("text");
+        var valuetotal = document.getElementById("valuetotal");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true){
+            total = ceil(total);
+            text.style.display = "block";
+            valuetotal.innerHTML = "Total price: "+total;
+
+            console.log(total);
+        } else {
+            text.style.display = "none";
+            console.log("hit else in roundtotla")
+        }
+    }
+
     render(){
         const items = []
         const charities = []
@@ -31,33 +58,35 @@ class Cart extends Component{
             )
             total = total + CartArray[i].cost
         }
-        for (var i = 0; i<CharityArray.length; i++){
+        for (var i = 0; i<this.props.charities.length; i++){
             charities.push(
                 <div className='col-sm-3 p-3'>
                     <Card style={{width: '20rem'}}>
-                        <Card.Img variant="top" src={CharityArray[i].imageUrl} height="200vw"/>
+                        <Card.Img variant="top" src={this.props.charities[i].imageUrl} height="200vw"/>
                         <Card.Body>
-                            <Card.Title>{CharityArray[i].name}</Card.Title>
+                            <Card.Title>{this.props.charities[i].name}</Card.Title>
                             <Card.Text>
-                                <p className='description'>{CharityArray[i].description}</p>
+                                <p className='description'>{this.props.charities[i].description}</p>
+                                <p id="text" style={{display:"none"}}>charity added!</p>
                             </Card.Text>
+                            <input type="checkbox" id="myCheck" onClick={()=>this.roundTotal(total)}/>
                         </Card.Body>
                     </Card>
                 </div>
             )
-
         }
 
         return(<div>
-            <div>{items}</div>
-            <div>{charities}</div>
-            <div><h2>Total price: {total}</h2></div>
+            <section>{items}</section>
+            <section>{charities}</section>
+            <div><h2 id="valuetotal" ><p style={{display:"block"}}>Total price: {total}</p></h2></div>
         </div>)
     }
 }
 
 const mapStateToProps = state => {
     return {
+        charities: state.charity.charities
     }
 }
 
