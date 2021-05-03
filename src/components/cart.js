@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import { Card } from 'react-bootstrap';
 import { render } from '@testing-library/react';
 import {ceil} from "mathjs";
-
+import {cartTotal} from '../actions/foodActions'
 
 class Cart extends Component{
 
@@ -58,6 +58,7 @@ class Cart extends Component{
             )
             total = total + CartArray[i].cost
         }
+        cartTotal = total
         for (var i = 0; i<this.props.charities.length; i++){
             charities.push(
                 <div className='col-sm-3 p-3'>
