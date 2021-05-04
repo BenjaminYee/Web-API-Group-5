@@ -19,22 +19,24 @@ class Cart extends Component{
     roundTotal(total) {
         console.log(total);
         // Get the checkbox
-        var checkBox = document.getElementById("myCheck");
+        var checkBox = document.getElementsByName("boxes");
         console.log(checkBox.length)
         // Get the output text
         var text = document.getElementById("text");
         var valuetotal = document.getElementById("valuetotal");
 
         // If the checkbox is checked, display the output text
-        if (checkBox.checked == true){
-            total = ceil(total);
-            text.style.display = "block";
-            valuetotal.innerHTML = "Total price: "+total;
-            cartTotal[0] = total
-            console.log(total);
-        } else {
-            text.style.display = "none";
-            console.log("hit else in roundtotla")
+        for (var i = 0; i< checkBox.length; i++) {
+            if (checkBox[i].checked == true) {
+                total = ceil(total);
+                text.style.display = "block";
+                valuetotal.innerHTML = "Total price: " + total;
+                cartTotal[0] = total
+                console.log(total);
+            } else {
+                text.style.display = "none";
+                console.log("hit else in roundtotla")
+            }
         }
     }
 
@@ -73,7 +75,7 @@ class Cart extends Component{
                                 <p className='description'>{this.props.charities[i].description}</p>
                                 <p id="text" style={{display:"none"}}>charity added!</p>
                             </Card.Text>
-                            <input type="checkbox" id="myCheck" onClick={()=>this.roundTotal(total)}/>
+                            <input name="boxes" type="checkbox" id="myCheck" onClick={()=>this.roundTotal(total)}/>
                         </Card.Body>
                     </Card>
                 </div>
